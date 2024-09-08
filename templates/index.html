@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat en Tiempo Real</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<body>
+    <div class="container mt-4 d-flex flex-column" style="height: 90vh;">
+        <h1 class="mb-4">Chat en Tiempo Real</h1>
+        <div class="form-group">
+            <label for="user">Nombre de Usuario</label>
+            <input type="text" id="user" class="form-control" placeholder="Nombre de Usuario" required>
+        </div>
+        <div id="messages-container" class="flex-grow-1 overflow-auto" style="border: 1px solid #dee2e6; border-radius: .25rem; padding: .5rem;">
+            <ul id="messages" class="list-group"></ul>
+        </div>
+        <form id="messageForm" class="mt-4">
+           
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <input type="text" id="message" class="form-control" placeholder="Mensaje" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="sendMessage()">Enviar Mensaje</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
